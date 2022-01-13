@@ -8,4 +8,12 @@ public interface ProfileService {
 	
 	List<Profile> getProfiles();
 
+	Profile getProfile(Integer id);
+	
+	Profile createProfile(Profile profile);
+	
+	Profile updateProfile(Integer id, Profile profile);
+	
+	void deleteProfile(Integer id);
+
 }
