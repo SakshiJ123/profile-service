@@ -21,7 +21,7 @@ public class ProfileIT {
 
     @Test
     void testOk(){
-        log.info("Hello HTTP Client");
+        System.out.println("Hello HTTP Client");
     }
 
     @Test
@@ -34,7 +34,7 @@ public class ProfileIT {
         HttpGet httpget = new HttpGet("http://localhost:4040/api/profiles");
 
         //Printing the method used
-        log.info("Request Type {}", httpget.getMethod());
+        System.out.println("Request Type {}"+ httpget.getMethod());
 
         //Executing the Get request
         HttpResponse httpresponse = httpclient.execute(httpget);
@@ -42,10 +42,10 @@ public class ProfileIT {
         Scanner sc = new Scanner(httpresponse.getEntity().getContent());
 
         //Printing the status line
-        log.info("Status Line {}", httpresponse.getStatusLine().toString());
-        log.info("Status Code {}", httpresponse.getStatusLine().getStatusCode());
+        System.out.println("Status Line {}"+ httpresponse.getStatusLine().toString());
+        System.out.println("Status Code {}"+ httpresponse.getStatusLine().getStatusCode());
         while(sc.hasNext()) {
-            log.info("Response {}", sc.nextLine());
+        	System.out.println("Response {}"+ sc.nextLine());
         }
     }
 
@@ -65,19 +65,19 @@ public class ProfileIT {
         httpget.setURI(profileDetailsUri.build());
 
         //Printing the method used
-        log.info("Request Type {}", httpget.getMethod());
+        System.out.println("Request Type {}"+ httpget.getMethod());
 
         //Executing the Get request
         HttpResponse httpresponse = httpclient.execute(httpget);
 
         // Printing Status Line and code
-        log.info("Status Line {}", httpresponse.getStatusLine().toString());
-        log.info("Status Code {}", httpresponse.getStatusLine().getStatusCode());
+        System.out.println("Status Line {}"+ httpresponse.getStatusLine().toString());
+        System.out.println("Status Code {}"+ httpresponse.getStatusLine().getStatusCode());
 
         Scanner sc = new Scanner(httpresponse.getEntity().getContent());
 
         while(sc.hasNext()) {
-            log.info("Response {}", sc.nextLine());
+        	System.out.println("Response {}"+ sc.nextLine());
         }
     }
 }
